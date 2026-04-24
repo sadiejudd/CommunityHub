@@ -21,7 +21,7 @@
 
      <div class="col-md-4 mb-4">
             <div class="card h-100 bg-secondary-subtle shadow-sm border-0">
-                <a href="{% url 'details' event.pk %}"> <img src = "{{event.image.url}}" width = "400px"></a>
+                <a href="{% url 'details' event.pk %}"> <img src = "{% static 'images/calendar.jpg' %}" width="400px"></a>
 
             <div class="card-body text-center">
 
@@ -37,7 +37,7 @@
     
     
 
-    {%endfor%}
+    {%endfor%} 
     </div>
 
 
