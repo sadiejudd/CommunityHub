@@ -11,6 +11,8 @@ class Event(models.Model):
     image = models.ImageField(upload_to='event_images/',
         default='event_images/party.jpg',
         blank = True)
+
+    image_url = models.URLField(default = "https://res.cloudinary.com/dlvyzkknx/image/upload/v1776997098/calendar_cchd5s.png", blank=True)
     
 
     def __str__(self):
