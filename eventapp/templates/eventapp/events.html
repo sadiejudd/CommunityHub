@@ -6,20 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href = "{% static 'eventapp/style.css' %}" rel = "stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
-    <h2  class="text-center mt-5 mb-2 fw-bold text-primary">Events</h2>
+    <h2  class="text-center mt-5 mb-2 fw-bold w-100" id = "title">Events</h2>
     <br>
 
+    
+<div class = "container">
+    <div class = "row">
     {%for event in events%}
-    <h3 class="text-center mb-3 fw-semibold text-secondary">{{ event.title }}</h3>
-    <span class="badge bg-light text-dark border">
+
+     <div class="col-md-4 mb-4">
+            <div class="card h-100 bg-secondary-subtle shadow-sm border-0">
+                <a href="{% url 'details' event.pk %}"> <img src = "{{event.image.url}}" width = "400px"></a>
+
+            <div class="card-body text-center">
+
+                <h3 class="text-center mb-3 fw-semibold text-secondary">{{ event.title }}</h3>
+   <p class = "text-muted mb-0">
         {{ event.datetime|date:"M d, Y" }}
-    </span>
+   </p>
+
+   </div>
+   </div>
+   </div>
+
+    
+    
 
     {%endfor%}
-    
+    </div>
+
+
+    <div class="text-center mt-4">
+    <a href = "{% url 'form' %}" class = "btn btn-secondary">Add Event</a>
+    </div>
+        </div>
 </body>
 </html>
